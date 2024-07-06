@@ -1,19 +1,19 @@
 module Enumerable
 
   def my_each_with_index
-    self.length.times do |i|
-      yield(self[i],i)
-    end
+    self.length.times {|i| yield(self[i],i)}
     self
   end
 
   def my_select
     result = []
-    self.my_each do |elem|
-      result.push(elem) if yield(elem)
-      next
-    end
+    self.my_each {|elem| result << elem if yield(elem)}
     result
+  end
+
+  def my_all?
+    self.my_each {|elem| return false if !yield(elem)}
+    true
   end
 
 end

@@ -26,6 +26,16 @@ module Enumerable
     true
   end
 
+  def my_count
+    if block_given?
+      i = 0
+      self.my_each {|elem| i+= 1 if yield(elem)}
+      i
+    else
+      self.size
+    end
+  end
+
 end
 class Array
 

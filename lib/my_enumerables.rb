@@ -21,6 +21,11 @@ module Enumerable
     false
   end
 
+  def my_none?
+    self.my_each {|elem| return false if yield(elem)}
+    true
+  end
+
 end
 class Array
 

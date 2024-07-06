@@ -42,6 +42,12 @@ module Enumerable
     arr
   end
 
+
+  def my_inject(value = 0)
+    self.my_each {|elem| value = yield value, elem}
+    value
+  end
+
 end
 class Array
 

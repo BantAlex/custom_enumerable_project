@@ -16,6 +16,11 @@ module Enumerable
     true
   end
 
+  def my_any?
+    self.my_each {|elem| return true if yield(elem)}
+    false
+  end
+
 end
 class Array
 

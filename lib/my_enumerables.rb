@@ -36,6 +36,12 @@ module Enumerable
     end
   end
 
+  def my_map
+    arr = []
+    self.my_each {|elem| arr << yield(elem)}
+    arr
+  end
+
 end
 class Array
 
